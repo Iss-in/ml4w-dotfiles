@@ -1,0 +1,28 @@
+.clock {
+	font-family: "Shoguns Clan", "Roboto";
+	font-size: 60px;
+	padding: 0px;
+	.separator{
+		font-size: 35px;
+		font-family: "Shoguns Clan";
+		// font-family: "Cantarell";
+		color: red;
+	}
+	.time{
+		font-size: 50px;
+	}
+		.time-period{
+			font-size: 40px;
+			// font-family: "Cantarell";
+			color: red;
+		}
+	// .time-hour{
+	// 	transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 1);
+	// }
+
+	// .time-minute {
+	// 	background-color: $darker-background;
+	// 	border-radius: 10px;
+	// 	font-family: "DM Sans";
+	// }
+}

@@ -1,0 +1,72 @@
+[General]
+notifiedUnsupportedHotkey=true
+showTray=true
+telemetry=false
+terminal=Console
+
+[applications]
+enabled=true
+use_exec=true
+use_generic_name=true
+use_keywords=true
+
+[audio_switcher]
+enabled=true
+
+[calculator_qalculate]
+enabled=true
+
+[copyq]
+enabled=true
+trigger="c "
+
+[python]
+enabled=true
+
+[python.audio_switcher]
+enabled=true
+
+[python.copyq]
+enabled=true
+trigger="c "
+
+[python.pomodoro]
+enabled=true
+trigger=pm
+
+[python.shoonya_totp]
+enabled=true
+
+[python.timer_new]
+enabled=true
+trigger="t "
+
+[shoonya_totp]
+enabled=true
+
+[system]
+command_hibernate=systemctl hibernate -i
+command_lock=swaylock
+command_poweroff=systemctl poweroff
+command_reboot=systemctl reboot
+command_suspend=systemctl suspend -i
+enabled=true
+
+[timer_new]
+enabled=true
+trigger="t "
+
+[widgetsboxmodel]
+alwaysOnTop=true
+clearOnHide=false
+clientShadow=false
+darkTheme=Custom Dark
+displayScrollbar=false
+followCursor=true
+hideOnFocusLoss=true
+historySearch=true
+itemCount=5
+lightTheme=Custom Dark
+quitOnClose=false
+showCentered=true
+systemShadow=false

@@ -35,39 +35,41 @@
     },
 
     // Pulseaudio
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon}   {volume}%",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-        "headphone": " ",
-        "hands-free": " ",
-        "headset": " ",
-        "phone": " ",
-        "portable": " ",
-        "car": " ",
-        "default": [" ", " ", " "]
-        },
-        "on-click": "pavucontrol"
-    },
+    // "pulseaudio": {
+    //     // "scroll-step": 1, // %, can be a float
+    //     "format": "{icon}   {volume}%",
+    //     "format-bluetooth": "{volume}% {icon} {format_source}",
+    //     "format-bluetooth-muted": " {icon} {format_source}",
+    //     "format-muted": " {format_source}",
+    //     "format-source": "{volume}% ",
+    //     "format-source-muted": "",
+    //     "format-icons": {
+    //     "headphone": " ",
+    //     "hands-free": " ",
+    //     "headset": " ",
+    //     "phone": " ",
+    //     "portable": " ",
+    //     "car": " ",
+    //     "default": [" ", " ", " "]
+    //     },
+    //     "on-click": "pavucontrol"
+    // },
 
     // Modules Left
     "modules-left": [
-        "custom/appmenuicon",
+"custom/appmenuicon",
         "hyprland/workspaces",
-        "group/links",
-        "group/settings",
-        "group/quicklinks",
+        // "group/links",
+        // "group/quicklinks",
+        "wlr/taskbar",
         "custom/empty"
     ],
 
     // Modules Center
     "modules-center": [
-        "hyprland/window",
+        "clock",
+        "custom/silent",
+// "hyprland/window",
         "custom/empty"
     ],
 
@@ -75,15 +77,16 @@
     "modules-right": [
         "custom/updates",
         "pulseaudio",
-        //"backlight",
+//"backlight",
         "bluetooth",
         "battery", 
-        "network",
-        "group/hardware",
+// "network",
+        // "group/hardware",
         "group/tools",
-        "custom/exit",
-        "clock",
-        "tray",
-        "custom/ml4w-welcome"
+        // "custom/exit",
+        "group/settings",
+        // "clock",
+"tray",
+        "custom/ml4w-welcome",
     ]
 }

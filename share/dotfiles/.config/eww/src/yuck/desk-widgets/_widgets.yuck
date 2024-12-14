@@ -1,0 +1,35 @@
+(defwidget desk-widgets []
+    (box :class "desk-widgets" :orientation "v" :space-evenly "false"
+        (box :class "first-row" :orientation "h" :space-evenly "false"
+
+        
+            (box :class "weather" :orientation "v" :space-evenly "false"
+                (box :class "top" :orientation "h" :space-evenly "true"
+                    (label :class "weather-icon" :style "color: ${weather_hex};" :text "${weather_icon}")
+                    (label :class "temperature" :style "color: #ffffff;" :text "${weather_temp}" )
+                )
+
+                (box :class "weather-data" :orientation "v" :space-evenly "false"
+                    (label :class "weather-desc" :halign "start" :text "${weather_desc}")
+                    (label :class "weather-humi" :halign "start" :text "Humidity: ${weather_humidity}")
+                )
+            )
+
+            (box :class "music" :orientation "v" :space-evenly "false"
+                (box :class "top" :orientation "h" :space-evenly "true"
+                    (label :class "song-icon" :style "color:#ff0000;" :halign "start" :text "${song_icon}")
+                )
+
+                (box :class "song-detail" :orientation "v" :space-evenly "false"
+                    (label :class "song-title" :halign "start" :text "${song_title}")
+                    (label :class "song-artist" :halign "start" :text "${song_artist}")
+                )
+            )
+
+        )
+
+        ;;(box :class "second-row" :orientation "h" :space-evenly "true"
+             ;;(label :class "lyrics" :halign "center" :text "${lyrics}")
+        ;;)
+    )
+)

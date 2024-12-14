@@ -1,0 +1,31 @@
+profile {
+    output "HDMI-A-1"  mode 2560x1440@59.95Hz  position  0,0 scale 1  
+    output "DP-1" mode 2560x1440@59.95Hz  position  2560,0 scale 1
+    output "eDP-1" disable
+	#output "eDP-1"  mode 1920x1080@60.00300Hz  position  5120,0 scale 1
+	# displayport is required for wayland adaptive sync
+}
+
+profile {
+	output "eDP-1"  mode 1920x1080@60.0031Hz  position  0,0 scale 1
+}
+
+profile left {
+    output "HDMI-A-1"  mode 2560x1440@59.95Hz  position  0,0 scale 1  
+    output "DP-1" disable
+    output "eDP-1" disable
+}
+
+profile right {
+    output "HDMI-A-1" disable
+    output "DP-1" mode 2560x1440@59.95Hz  position  2560,0 scale 1
+    output "eDP-1" disable
+}
+
+profile all {
+    output "HDMI-A-1"  mode 2560x1440@59.95Hz  position  0,0 scale 1  
+    output "DP-1" mode 2560x1440@59.95Hz  position  2560,0 scale 1
+    output "eDP-1" disable
+	#output "eDP-1"  mode 1920x1080@60.00300Hz  position  5120,0 scale 1
+	# displayport is required for wayland adaptive sync
+}

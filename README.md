@@ -87,3 +87,6 @@ The following projects have inspired me:
 - https://github.com/dianaw353/hyprland-configuration-rootfs
 
 and many more...
+
+
+#TODO: add files in .local/share as well

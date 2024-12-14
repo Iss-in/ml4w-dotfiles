@@ -1,0 +1,51 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.titleBarStyle": "custom", 
+    "editor.fontSize": 12,
+    // "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'Font Awesome 6 Pro Regular','monospace', monospace",
+    "editor.fontFamily": "'PragmataPro Mono Regular', 'Droid Sans Mono', 'Font Awesome 6 Pro Regular','monospace', monospace",
+
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.syncthing.*": true,
+        "**/.vscode": true
+    },
+    "jupyter.askForKernelRestart": false,
+    "editor.fontLigatures": false,
+    "python.defaultInterpreterPath": "/home/kushy/Syncthing/Projects/Shoonya/venv",
+    "pylint.lintOnChange": true,
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.iconTheme": "symbols",
+    "window.zoomLevel": 2,
+    "symbols.hidesExplorerArrows": false,
+    "colorInfo.languages": [
+        {
+            "selector": "json",
+            "colors": "css"
+        },
+        {
+            "selector": "html",
+            "colors": "css"
+        },
+        {
+            "selector": "html",
+            "colors": "qss"
+        }
+    ],
+    "colorize.languages": [
+        "javascript",
+        "json",
+        "yml",
+        "qss",
+        "css"
+
+
+        // ...
+    ],
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Default Light+",
+    // "workbench.colorTheme": "Default Light+",
+
+}

@@ -1,0 +1,18 @@
+(defwidget clock []
+	(box :class "clock" :orientation "v" :space-evenly "true" :halign "center"
+
+
+		(box :class "time" :orientation "h" :space-evenly "true" :halign "center"
+			(label :class "time-hour" :text "${hour}" :halign "end")
+			(label :class "separator" :text "1" :halign "center")
+			(label :class "time-minute" :text "${minute}" :halign "start")
+			;(label :class "time-period" :text "${timePeriod }" :halign "start")
+		)
+
+		(box :class "date" :orientation "h" :space-evenly "true" :halign "center"
+			(label :class "day" :text "${monthday}" :halign "center")
+			;(label :class "month" :text "${month}" :halign "center")
+		)
+
+	)
+)

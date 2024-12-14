@@ -1,0 +1,11 @@
+(defwindow clock
+	:monitor "0"
+	:geometry (geometry :x "100"
+						:y "100" 
+						:width "2%" 
+						:height "10%"
+						:anchor "bottom right")
+	:windowtype "normal"
+	:stacking "fg"
+	:wm-ignore false
+	(clock))

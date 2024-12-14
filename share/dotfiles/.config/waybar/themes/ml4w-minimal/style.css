@@ -14,6 +14,10 @@
  * Import Pywal colors 
  * ----------------------------------------------------- */
 /* @import 'style-light.css'; */
+
+@import url('../../../../.cache/wal/colors-waybar.css');
+
+
 @define-color backgroundlight #FFFFFF;
 @define-color backgrounddark #FFFFFF;
 @define-color workspacesbackground1 #FFFFFF;
@@ -35,7 +39,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
@@ -81,15 +85,16 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-    border-radius: 16px;
+    border-radius: 10px;
     background-color: @backgroundlight;
-    opacity:0.9;
+    opacity:0.8;
     padding:20px;
     margin:0px;
 }
 
 tooltip label {
     color: @textcolor2;
+    font-weight: normal;
 }
 
 /* -----------------------------------------------------
@@ -125,6 +130,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-brave, 
+#custom-silent,
 #custom-browser, 
 #custom-keybindings, 
 #custom-outlook, 
@@ -428,4 +434,55 @@ window#waybar.empty #window {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
+}
+
+
+
+#custom-music.Playing {
+    /* background: rgb(137, 180, 250);
+    background: radial-gradient(circle, rgba(137, 180, 250, 120) 0%, rgba(142, 179, 250, 120) 6%, rgba(148, 226, 213, 1) 14%, rgba(147, 178, 250, 1) 14%, rgba(155, 176, 249, 1) 18%, rgba(245, 194, 231, 1) 28%, rgba(158, 175, 249, 1) 28%, rgba(181, 170, 248, 1) 58%, rgba(205, 214, 244, 1) 69%, rgba(186, 169, 248, 1) 69%, rgba(195, 167, 247, 1) 72%, rgba(137, 220, 235, 1) 73%, rgba(198, 167, 247, 1) 78%, rgba(203, 166, 247, 1) 100%); */
+    background-size: 400% 400%;
+    animation: gradient_f 9s cubic-bezier(.72, .39, .21, 1) infinite;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
+    font-weight: bold;
+    color: #fff;
+}
+
+#custom-music.Paused,
+#custom-music.Stopped {
+    background: #161925;
+}
+
+#taskbar button {
+    margin : 4px 0px;
+    /* border-radius : 4px;
+    background: 20% rgba(99,99,99,0.5) ; */
+} 
+
+#taskbar button.active {
+    margin : 4px 0px;
+    border-radius : 4px;
+    background: 20% rgba(99,99,99,0.7) ;
+} 
+
+
+
+#custom-silent {
+    padding: 0px 6px;
+    border-radius: 10px;
+    /* font-size: 2x; */
+    font-weight: 600;
+}
+
+
+#custom-silent.on{
+    /* border : 1px solid black; */
+    /* background-color: #F5F5F5; */
+    /* font-size: large; */
+    color: @color11;
+    /* box-shadow: 0px 0px 4px rgba(0,0,0,0.5); */
+    background-size: 5px;
+    /* margin : 5px 1px;
+    border-radius: 6px; */
+    /* color:; */
 }

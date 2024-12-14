@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 
-repo="mylinuxforwork/dotfiles"
+repo="quack-o/ml4w-dotfiles"
 
 # Get latest tag from GitHub
 get_latest_release() {

@@ -1,0 +1,16 @@
+* {
+	all: unset;
+}
+
+window {
+	color: $foreground-primary;
+	font-family: "Segoe UI";
+	font-weight: 700;
+}
+
+tooltip {
+	background-color: $background-tertiary;
+	border-radius: 4px;
+	font-family: "Segoe UI";
+	font-size: 14px;
+}

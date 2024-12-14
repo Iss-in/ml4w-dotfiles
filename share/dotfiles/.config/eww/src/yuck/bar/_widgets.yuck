@@ -1,0 +1,91 @@
+(defwidget launcher []
+	(box :class "launcher"
+		:orientation "h"
+		:space-evenly "false"
+		:halign "center"
+		(button :class "launcher-btn"
+				:onclick "$HOME/.local/bin/appmnu"
+				""
+		)
+	)
+)
+
+(defwidget workspaces []
+	(literal :content workspace))
+(deflisten workspace "scripts/getWorkspaces.sh")
+
+(defwidget time []
+	(box :orientation "h"
+		:class "time"
+		:halign "start"
+		(button :onclick "sh scripts/openInfoCenter.sh &"
+			"${monthday}, ${hour}:${minute}"
+		)
+	)
+)
+
+(defwidget battery []
+	(box :class "battery"
+		:orientation "h"
+		:space-evenly "false"
+		:tooltip "Battery: ${battery_capacity}%"
+		
+		(overlay
+			(scale :class "battery-scale"
+				:min 0
+				:max 100
+				:orientation "h"
+				:value battery_capacity
+			)
+			(label :class "battery-label"
+				:text ""
+			)
+		)
+	)
+)
+
+(defwidget action-center []
+	(box :class "action-center"
+		:orientation "h"
+		:space-evenly "true"
+		(button :class "control-center-btn"
+			:onclick "sh scripts/openControlCenter.sh &"
+			:tooltip "Control Center"
+			"${network_icon}  ${bluetooth_icon}  ${airplane_mode_status}"
+		)
+		; (button :class "wifi-btn" :tooltip "Connected to ${network_name}"
+		; 	:onclick "sh scripts/openControlCenter.sh &"
+		; 	network_icon
+		; )
+		; (button :class "bluetooth-btn" :tooltip "Powered: ${bluetooth_status}"
+		; 	:onclick "sh scripts/openControlCenter.sh &"
+		; 	bluetooth_icon
+		; )
+	)
+)
+
+;; BAR IS SEPARATED INTO THREE PARTS: TOP, CENTER AND BOTTOM
+;; TOP WIDGETS
+(defwidget top []
+	(box :class "top" :orientation "h" :space-evenly "false" :halign "start"
+		(time)))
+
+;; CENTER WIDGETS
+(defwidget center []
+	(box :orientation "h" :space-evenly "false" :halign "center"
+		(workspaces)))
+;; BOTTOM WIDGETS
+(defwidget bottom []
+	(box :orientation "h" :space-evenly "false" :halign "end"
+		(action-center)
+		(separator :text "‏ ‏ ‏")
+		(battery)
+		; (time)
+		(separator :text "‏ ‏ ‏")
+		(layout)))
+	
+(defwidget bar []
+	(box :class "eww-bar" :orientation "h" :valign "false" :halign "false"
+		(top)
+		(center)
+		(bottom)))

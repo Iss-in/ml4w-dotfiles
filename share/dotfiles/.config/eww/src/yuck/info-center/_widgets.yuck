@@ -1,0 +1,43 @@
+(defwidget info-center []
+	(box :class "info-center-window" :space-evenly "false" :orientation "h"
+		(box :class "info-center-spacer" :style {icenter ? "padding-left: 43em;" : "padding-left: 0em;"})
+		(box :class "info-center" :orientation "v" :space-evenly "false"
+			(box :class "first-row" :orientation "v" :space-evenly "false"
+				(box :class "time" :orientation "h" :space-evenly "true" :halign "center"
+					(label :class "time-hour" :text "${hour}" :halign "end")
+					(box :class "time-separator" :orientation "v" :space-evenly "false" :halign "center"
+						(label :text "")
+						(label :text "")
+						(label :text "")
+					)
+					(label :class "time-minute" :text minute :halign "start")
+				)
+				(box :class "date" :orientation "h" :space-evenly "false" :halign "center"
+					(label :text wd-m-d)
+				)
+			)
+			(box :class "second-row" :orientation "v"
+				(box :class "cal-box"
+
+					(calendar :class "cal" 
+						:show-details true :show-heading true :show-day-names true
+						:day calendar_day :month calendar_month :year calendar_year)
+				)
+			)
+			(box :class "third-row" :orientation "h" :space-evenly "true"
+				(box :class "weather" :orientation "h"
+					(box :class "weather-details" :space-evenly "false"
+						(label :class "weather-icon" :style "color: ${weather_hex};" :text "${weather_icon}")
+						(box :class "weather-data" :orientation "v" :space-evenly "false"
+							(label :class "weather-desc" :halign "start" :text "${weather_desc}")
+							(label :class "weather-humi" :halign "start" :text "Humidity: ${weather_humidity}")
+							(label :class "weather-temp" :halign "start" :text "Temp: ${weather_temp}")
+
+						)
+					)
+				)
+			)
+		)
+	)
+)
+(defvar icenter false)

@@ -1,0 +1,39 @@
+;; Calendar Widgets ;;
+(defwidget cal []
+	(box :class "cal-box" 
+		 :orientation "h"
+		(box :class "cal-inner-box"
+			(calendar :class "cal" 
+				:day calendar_day 
+				:month calendar_month 
+				:year calendar_year
+			)
+		)
+		(box 
+			:class "events" 
+			:orientation "vertical" 
+			:space-evenly false
+			(label :text "CURRENT " :class "sep" :halign "start") 
+			(box 
+				:class "event"
+				:orientation "vertical"
+				:height: 10
+				:vexpand true
+				(label :text "${current_title}" :class "desc" :halign "start" :vexpand true) 
+				(label :text "${current_interval}" :class "time" :halign "start") 
+			)
+			(box :orientation "horizontal" :class "sep"
+				(label :text "UPCOMING" :class "sep" :halign "start") 
+				(label :text "${upcoming_time}" :class "sep" :halign "end") 
+			)
+			(box 
+				:class "next_event"
+				:orientation "vertical"
+				:height: 1
+				:vexpand true
+				(label :text "${next_title}" :class "desc" :halign "start") 
+				(label :text "${next_interval}" :class "time" :halign "start") 
+			)
+		)
+	)
+)

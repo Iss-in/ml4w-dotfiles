@@ -1,0 +1,21 @@
+(defwidget notification-popup []
+	(revealer :transition "crossfade" :duration "500ms" :reveal noti
+		(scroll :class "notification-scroller" :vscroll "true"
+			(box :class "notification-history" :orientation "v"
+				(for entry in {dunst_history["data"][0]}
+					(notification :class 'notif-${entry["id"]["data"]}'
+						:title {entry["appname"]["data"]}
+						:summary {entry["summary"]["data"]}
+						:body {entry["body"]["data"]}
+						:icon {entry["appname"]["data"] == "Spotify" ? "../../.cache/dunst/${entry['summary']['data']}.png" :
+							entry["appname"]["data"] == "discord" ? "./assets/applications/discord.png" :
+							(entry["icon_path"]["data"] ?: "../dunst/assets/notification/fallback.png")}
+						:LC "${EWW_CMD} update noti=false; sleep 0.270; ${EWW_CMD} close notification-popup; pkill openEwwPopup.sh"
+						:reveal_close_icon "true"
+					)
+				)
+			)
+		)
+	)
+)
+(defvar noti false)

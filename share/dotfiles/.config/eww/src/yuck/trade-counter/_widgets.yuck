@@ -1,0 +1,59 @@
+(defwidget trade-counter []
+	;;(box :class "counter1" :orientation "v" :space-evenly "true" :halign "center"
+	;;	(label :class "counter" :text "${trade_counter}" :halign "center")
+	;;)
+
+	(box 
+		:class "counter1" 
+		:space-evenly false 
+		:orientation "h" 
+		:spacing 0
+
+;;		(box 
+;;			:space-evenly false 
+;;			:spacing 0
+;;			:orientation "v"
+;;			:class "rules" 		
+;;			(label 
+;;				:class "clock" 
+;;				:text "${clock_3m}"
+;;				:halign "start"
+;;			) 
+;;			(label 
+;;				:class "rule" 
+;;				:text "always wait for a candle to close"
+;;				:halign "start"
+;;			) 
+;;		)
+
+		(box 
+			:class "trade" 
+			:orientation "v" 
+			:space-evenly "false" 
+			:halign "center"
+			:spacing 5
+			(label 
+				:class "counter" 
+				:limit-width 25 
+				:text "Trades : ${trade_counter}"
+			) 
+			(label 
+				:class "counter" 
+				:limit-width 25 
+				:text "pnl : ${pnl_counter}"
+			) 
+			(label 
+				:class "counter" 
+				:limit-width 25 
+				:text "max loss : ${max_loss}"
+			) 
+			(label 
+				:class "counter" 
+				:limit-width 25 
+				:text "${ce} ${pe}"
+			) 
+		)
+ 
+
+	)
+)

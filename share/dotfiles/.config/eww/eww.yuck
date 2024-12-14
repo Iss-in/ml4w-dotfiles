@@ -1,0 +1,44 @@
+
+(include "./src/yuck/_variables.yuck")
+(include "./src/yuck/_modules.yuck")
+
+
+(include "./src/yuck/desk-widgets/_widgets.yuck")
+(include "./src/yuck/desk-widgets/_windows.yuck")
+
+
+(include "./src/yuck/exitscreen/_widgets.yuck")
+(include "./src/yuck/exitscreen/_windows.yuck")
+
+
+(include "./src/yuck/calendar-closer/_widgets.yuck")
+(include "./src/yuck/calendar-closer/_windows.yuck")
+
+;; (include "./src/yuck/info-center/_widgets.yuck")
+;; (include "./src/yuck/info-center/_windows.yuck")
+
+
+(include "./src/yuck/clock/_widgets.yuck")
+(include "./src/yuck/clock/_windows.yuck")
+
+
+
+(include "./src/yuck/calendar/_widgets.yuck")
+(include "./src/yuck/calendar/_windows.yuck")
+
+
+(include "./src/yuck/bar/_widgets.yuck")
+(include "./src/yuck/bar/_windows.yuck")
+
+;; (include "./src/yuck/bar/_widgets.yuck")
+;; (include "./src/yuck/bar/_windows.yuck")
+
+(include "./src/yuck/trade-counter/_widgets.yuck")
+(include "./src/yuck/trade-counter/_windows.yuck")
+
+
+(include "./src/yuck/quotes/_widgets.yuck")
+(include "./src/yuck/quotes/_windows.yuck")
+
+
+

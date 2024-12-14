@@ -1,0 +1,80 @@
+#!/bin/bash
+class="$( hyprctl activewindow -j | jq '.class' -r)"
+title="$( hyprctl activewindow -j | jq '.title' -r)"
+
+# do_not_fullscreen=("albert")
+do_not_fullscreen=("ulauncher" "albert")
+
+do_not_kill=("ulauncher" "albert" "org.gnome.Nautilus" )
+do_not_run_launcher=("csgo_linux64" "VirtualBox Machinetext") 
+
+function fullscreen() {
+    for value in "${do_not_fullscreen[@]}"; do
+        # echo $value
+        if [[ $value == $class ]];then
+            # echo "no fullscreen"
+            exit 0
+        fi
+    done
+    hyprctl dispatch fullscreen
+}
+
+function close(){
+    for value in "${do_not_kill[@]}"; do
+        # if [[ $app_id == *"$value"* || $class == *"$value"* || $title == *"$value"* ]];then
+        if [[  $class == "org.gnome.Nautilus"  ]];then
+            ~/.config/hypr/scripts/custom_scratchpad.sh -n 
+        elif [[  $class == *"$value"*  ]];then
+
+            # echo "no kill app"
+            exit 0
+        fi
+    done
+    hyprctl dispatch killactive
+}
+
+function albert(){
+    for value in "${do_not_run_launcher[@]}"; do
+        # echo $value
+        if [[ $app_id == *"$value"* || $class == *"$value"* ]];then
+            # echo "$value not matching"
+            exit 0
+        fi
+    done
+    # swaymsg fullscreen off & /bin/albert toggle
+    # /bin/albert toggle
+    # swaymsg fullscreen off & /usr/bin/ulauncher-toggle
+}
+
+
+verbose='false'
+while getopts 'fqad:s:v' flag; do
+  case "${flag}" in
+    a)  albert
+        #pactl -- set-sink-volume $sink +$val%
+	    ;;
+    f)  val="${OPTARG}" 
+        fullscreen
+	    ;;
+    q)  val="${OPTARG}" 
+        close
+	    ;;
+
+    d)  val="${OPTARG}" 
+        pulseaudio-ctl down $val  &&     dunstify "Volume $volume" -h int:value:$(pamixer --get-volume) -a sound -r $msgId -u low
+        ;;
+    s)  val="${OPTARG}"
+        set_volume $val
+        #pactl -- set-sink-volume $sink $val%
+        ;;
+    v) verbose='true' ;;
+    *) error "Unexpected option ${flag}" ;;
+  esac
+done
+
+exec 25> "/tmp/swaycommand..lock"
+if ! flock -n 25  ; then
+    printf 'another instance is running\n';
+    exit 1
+fi
+

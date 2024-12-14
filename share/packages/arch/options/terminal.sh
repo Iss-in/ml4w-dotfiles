@@ -1,4 +1,5 @@
 optdepends=(
     "kitty"
     "alacritty"
+    "foot"
 );

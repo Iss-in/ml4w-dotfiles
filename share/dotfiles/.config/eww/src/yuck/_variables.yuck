@@ -1,0 +1,191 @@
+;; DATE VARS 
+(defpoll minute :interval "1s"
+	"date '+%M'")
+(defpoll hour :interval "1s"
+	"date '+%I'")
+(defpoll timePeriod :interval "1s"
+	"date '+%p'")
+(defpoll weekday :interval "24h"
+	"date '+%A'")
+(defpoll monthday :interval "24h"
+	"date '+%d'")
+(defpoll month_year :interval "24h"
+    "date '+%B %Y'")
+(defpoll month :interval "24h"
+    "date '+%b'")
+(defpoll wd-m-d :interval "24h"
+	"date '+%A, %d %B'")
+
+;; SYSTEM INFO VARS
+(defpoll used_ram :interval "5s"
+	"./scripts/getUsedRam.sh")
+(defpoll volume :interval "500ms"
+	"amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll micro :interval "1s"
+	"amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll brightness :interval "500ms"
+	"brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+(defpoll battery_capacity :interval "1s"
+	"./scripts/getBattery.sh capacity")
+
+;; MUSIC PLAYER VARS
+(defpoll song_icon :interval "24h"
+	"./scripts/getMedia.sh -s")
+(defpoll art :interval "1s"
+	"echo \"$HOME/.cache/eww/cover.png\"")
+(defpoll song_art :interval "3s"
+	"./scripts/getMedia.sh")
+(defpoll song_artist :interval "1s"
+	"./scripts/getMedia.sh -a")
+(defpoll song_title :interval "1s"
+	"./scripts/getMedia.sh -t")
+(defpoll song_position :interval "250ms"
+	"./scripts/getSongMetadata.sh position")
+(defpoll player_status :interval "1s"
+	"./scripts/getSongMetadata.sh player_status")
+(defpoll player_status_text :interval "1s"
+	"./scripts/getSongMetadata.sh player_status_text")
+
+(defpoll lyrics :interval "1s"
+	"cat /home/kushy/x.txt | tail -1")
+
+
+;; LOCK SCREEN VARS
+(defpoll username :interval "24h"
+	"whoami")
+(defpoll fullname :interval "24h"
+	"user_record=\"$(getent passwd $USER)\"; user_gecos_field=\"$(echo \"$user_record\" | cut -d ':' -f 5)\"; user_full_name=\"$(echo \"$user_gecos_field\" | cut -d ',' -f 1)\"; echo $user_full_name")
+(defpoll hostname :interval "24h"
+	"hostname")
+
+;; WEATHER VARS
+(defpoll weather_temp :interval "3h"
+	"./scripts/getWeather.sh current_temp")
+(defpoll weather_temp_f :interval "3h"
+	"./scripts/getWeather.sh current_temp_fahrenheit")
+(defpoll weather_desc :interval "3h"
+	"./scripts/getWeather.sh weather_desc")
+(defpoll weather_feels_like :interval "3h"
+	"./scripts/getWeather.sh feels_like")
+(defpoll weather_humidity :interval "3h"
+	"./scripts/getWeather.sh humidity")
+(defpoll weather_icon :interval "3h"
+	"./scripts/getWeather.sh weather_icon")
+(defpoll weather_hex :interval "3h"
+	"./scripts/getWeather.sh hex")
+
+;; CALENDAR VARS
+;;(defpoll calendar_day :interval "10h"
+;;	"date '+%d'")
+;;(defpoll calendar_month :interval "10h"
+;;	"MONTH=$(date +%m) && MONTH=$((MONTH )) && echo $MONTH")
+;;(defpoll calendar_year :interval "10h"
+;;	"date '+%Y'")
+
+;; UTILITY ROW VARS
+(defpoll network_status :interval "1s"
+	"./scripts/getNetwork.sh color")
+(defpoll network_icon :interval "1s"
+	"./scripts/getNetwork.sh icon")
+(defpoll network_name :interval "1s"
+	"./scripts/getNetwork.sh name")
+(defpoll network_name_truncated :interval "1s"
+	"./scripts/getNetwork.sh trname")
+(defpoll redshift_status :interval "1s"
+	"./scripts/getRedshift.sh color")
+(defpoll dnd_status :interval "1s"
+	"./scripts/dashActions.sh dndstat")
+(defpoll jeff_status :interval "1s"
+	"./scripts/dashActions.sh jstat")
+
+;; NOTIFICATION CENTER/POPUP VARS
+(defpoll dunst_history :interval "250ms"
+	"dunstctl history")
+(defpoll reveal_no_notification_text :interval "5m"
+	"./scripts/getNotificationCount.sh")
+
+;; BLUETOOTH VARS
+(defpoll bluetooth_icon :interval "1s"
+	"./scripts/getBluetooth.sh icon")
+(defpoll bluetooth_status :interval "1s"
+	"./scripts/getBluetooth.sh status")
+(defpoll bluetooth_supported :interval "1s"
+	"./scripts/getBluetooth.sh supported")
+
+;; UNSORTED VARS
+(defpoll layout_icon :interval "250ms"
+	"./scripts/bspLayout.sh icon")
+(defpoll airplane_mode_status :interval "1s"
+	"./scripts/dashActions.sh amstat")
+
+
+
+(defpoll trade_rules :interval "1s"
+	"echo 'trade rule 1 \\ntrade rule 2 \\ntrade rule 3'")
+
+
+(defpoll clock_3m :interval "1s"
+	"python scripts/trade_time.py")
+
+;; get total trades
+(defpoll trade_counter :interval "5s"
+	"./scripts/trade_counter.sh -t")
+
+;; get pnl
+(defpoll pnl_counter :interval "5s"
+	"./scripts/trade_counter.sh -p")
+
+;; get max loss
+(defpoll max_loss :interval "5s"
+	"./scripts/trade_counter.sh -l")
+	
+;; get events
+(defpoll event :interval "30m"
+	"./scripts/calendar.sh -g 0")
+
+;; get ce
+(defpoll ce :interval "1m"
+	"./scripts/trade_counter.sh -e")
+
+
+;; get pe
+(defpoll pe :interval "1m"
+	"./scripts/trade_counter.sh -u")
+
+
+;; quotes
+(defpoll q1 :interval "1h"
+	"sed '1q;d'   /home/kushy/Syncthing/quotes.txt")
+(defpoll q2 :interval "1h"
+	"sed '2q;d'  /home/kushy/Syncthing/quotes.txt")
+(defpoll q3 :interval "1h"
+	"sed '3q;d'  /home/kushy/Syncthing/quotes.txt")
+(defpoll q4 :interval "1h"
+	"sed '4q;d'  /home/kushy/Syncthing/quotes.txt")
+
+
+;; keep updating events from google calender to a file
+;;(defpoll current :interval "1m"
+;;	"python /home/kushy/.config/eww/scripts/gcalcli_eww/gcalcli.py")
+
+(defpoll current_title :interval "1m"
+	"./scripts/getEvents.sh -a")
+(defpoll current_interval :interval "1m"
+	"./scripts/getEvents.sh -b")
+
+(defpoll next_title :interval "1m"
+	"./scripts/getEvents.sh -c")
+(defpoll next_interval :interval "1m"
+	"./scripts/getEvents.sh -d")
+(defpoll upcoming_time :interval "1m"
+	"./scripts/getEvents.sh -u")
+
+
+
+(defpoll calendar_day :interval "10h"
+    "date '+%d'")
+(defpoll calendar_month :interval "10h"
+	"date '+%m'")
+;;  "scripts/calendar")
+(defpoll calendar_year :interval "10h"
+    "date '+%Y'")

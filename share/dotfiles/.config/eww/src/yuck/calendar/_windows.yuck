@@ -1,0 +1,12 @@
+;; Calendar Windows ;;
+(defwindow calendar
+	:monitor "VG271U"
+	:stacking "fg"
+    :windowtype "normal"
+    :wm-ignore false
+
+	:geometry (geometry :x "1000px" 
+						:y "0%" 
+						:width "270px" 
+						:height "40px")
+(cal))

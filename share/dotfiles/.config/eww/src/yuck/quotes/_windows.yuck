@@ -1,0 +1,16 @@
+;; get monitors
+(defvar screen "1")
+
+
+
+(defwindow quotes
+	:monitor 0
+	:geometry (geometry :x "10"
+						:y "10" 
+						:width "400" 
+						:height "8%"
+						:anchor "top right")
+	:windowtype "dock"
+	:stacking "bottom"
+	:wm-ignore false
+	( quotes))

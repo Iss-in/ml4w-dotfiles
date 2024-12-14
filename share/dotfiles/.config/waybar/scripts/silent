@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# toggle_on=
+# toggle_off=
+
+toggle_on=
+toggle_off=
+
+out_file="/tmp/silent"
+
+
+
+info (){
+    val=$(swaync-client -D)
+    # if [[ $? -ne 0 ]];then
+    #     echo "{\"text\":\"No clue brp\",\"alt\":\"dnd on\",\"tooltip\":\" dnd on\",\"class\":\"on\"}"
+    # fi
+    case "$val" in
+    "false")
+        echo "{\"text\":\"dnd $toggle_on\",\"alt\":\"dnd off\",\"tooltip\":\"session active\",\"class\":\"off\"}" > $out_file
+        ;;
+    "true")
+        echo "{\"text\":\"dnd $toggle_off\",\"alt\":\"dnd on\",\"tooltip\":\" dnd on\",\"class\":\"on\"}" > $out_file
+        ;;
+    *)
+        echo "{\"text\":\"No clue brp\",\"alt\":\"dnd on\",\"tooltip\":\" dnd on\",\"class\":\"on\"}" > $out_file
+        ;;
+    esac
+}
+
+
+toggle (){ 
+    val=$(swaync-client -D)
+    case "$val" in
+    "false")
+        swaync-client -dn 
+        ;;
+    "true")
+        swaync-client -df
+        ;;
+    esac
+    info
+    pkill -RTMIN+5 waybar
+}
+
+
+
+exec 13> "/tmp/silent.lock"
+if ! flock -n 13  ; then
+    printf 'another instance is running\n';
+    exit 1
+ fi
+
+
+if [ ! -f $out_file ]; then
+    info 
+fi
+
+
+case "$1" in
+    "info")  info ;;         
+    "toggle") toggle ;;
+    *) info ;;
+
+esac

@@ -11,23 +11,16 @@
 # ----------------------------------------------------- 
 # Quit all running waybar instances
 # ----------------------------------------------------- 
+$HOME/.config/waybar/scripts/silent info
+
 killall waybar
 pkill waybar
 sleep 0.5
 
 # ----------------------------------------------------- 
-# Reload AGS
-# -----------------------------------------------------
-
-echo ":: Reload ags"
-ags quit &
-sleep 0.2
-ags run &
-
-# ----------------------------------------------------- 
 # Default theme: /THEMEFOLDER;/VARIATION
 # ----------------------------------------------------- 
-themestyle="/ml4w;/ml4w/light"
+themestyle="/ml4w-blur;/ml4w-blur/white"
 
 # ----------------------------------------------------- 
 # Get current theme information from ~/.config/ml4w/settings/waybar-theme.sh

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .model')
+echo $monitor
+windows="$(eww active-windows)"
+
+# echo "$windows"
+IFS=$'\n'
+for window in ${windows[@]}; do
+    echo $windowe
+    if [ $window == "calendar: calendar" ];then
+        eww close calendar & eww close calendar-closer
+        exit 0
+    fi
+done
+eww open --screen "$monitor" --toggle calendar &
+eww open --screen "$monitor" --toggle calendar-closer &
+exit 0

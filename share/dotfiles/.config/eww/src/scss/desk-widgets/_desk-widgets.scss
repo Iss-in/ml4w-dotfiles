@@ -1,0 +1,79 @@
+.desk-widgets{
+	padding: 2em;
+
+	.first-row {
+		// margin: 0px 12em;
+		padding: 2em;
+
+		.weather {
+			padding: 1em 1em 1em 0em;
+			font-family: "Fira sans";
+			background-color: $background-secondary;
+			border-radius: 10px;
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+			margin: 0px 1em;
+
+			.top {
+				.weather-icon {
+					font-size: 32px;
+				}
+				.temperature {
+					font-family: "Bebas Neue";
+					font-size: 32px;
+					font-weight: 300;
+				}
+			}
+
+			.weather-data {
+				margin-left: 1em;
+
+				.weather-desc {
+					font-size: 20px;
+					font-weight: bold;
+
+				}
+			}
+
+		}
+		
+		.music {
+			background-color: $background-secondary;
+			// background-image: url("/tmp/music_widget.png");
+			background-size: 150px 150px;
+			padding: 1em ;
+			margin: 0px 1em;
+			font-family: "Fira sans";
+			border-radius: 10px;
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+			
+			.top {
+				.song-icon {
+					font-size: 32px;
+				}
+			}
+
+			.song-detail {
+				.song-title {
+					font-size: 20px;
+					font-weight: bold;
+				}
+				.song-title {
+
+				}
+			}
+		}
+	}
+	.second-row {
+		padding: 2em;
+		.lyrics{
+			padding: 2em ;
+			font-family: "Fira sans";
+			background-color: $background-secondary;
+			font-size: 20px;
+
+			border-radius: 10px;
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+			margin: 0px 1em;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+(defwidget quotes []
+
+	(box 
+		:class "quotes" 
+		:orientation "v" 
+		:space-evenly "false" 
+		:halign "center"
+		:spacing 0
+		(label 
+			:class "quote" 
+			:text "${q1}"
+		) 
+		(label 
+			:class "quote" 
+			:text "${q2}"
+		) 
+		(label 
+			:class "quote" 
+			:text "${q3}"
+		) 
+		(label 
+			:class "quote" 
+			:text "${q4}"
+		) 
+	)
+
+)
