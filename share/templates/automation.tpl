@@ -1,6 +1,6 @@
 #!/bin/bash
 # Find the latest automation parameters here:
-# https://github.com/mylinuxforwork/dotfiles/wiki/Automation-of-the-installation-and-update
+# https://github.com/quack-o/ml4w-dotfiles/wiki/Automation-of-the-installation-and-update
 
 # -----------------------------------------------------
 # AUR HELPER

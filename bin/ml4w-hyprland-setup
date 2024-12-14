@@ -23,7 +23,7 @@ if [[ $dir == "/usr/bin" ]] ;then
 else
 
     # Filesystem
-    base_directory="$(dirname $(pwd))"
+    base_directory="$(pwd)"
     bin_directory="$base_directory/bin"
     share_directory="$base_directory/share"
     lib_directory="$base_directory/lib"

@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 
-repo="mylinuxforwork/dotfiles"
+repo="quack-o/ml4w-dotfiles"
 
 # Get latest tag from GitHub
 get_latest_release() {
@@ -124,7 +124,7 @@ fi
 echo ":: Checking that required packages are installed..."
 _installPackages "${packages[@]}";
 
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/share/packages/fedora/special/gum.sh)
+bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/share/packages/fedora/special/gum.sh)
 
 echo
 # Select the dotfiles version
@@ -136,11 +136,11 @@ version=$(gum choose "main-release" "rolling-release" "cancel")
 if [ "$version" == "main-release" ]; then
     echo ":: Installing Main Release"
     echo
-    git clone --branch $latest_version --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --branch $latest_version --depth 1 https://github.com/quack-o/ml4w-dotfiles.git ~/Downloads/dotfiles
 elif [ "$version" == "rolling-release" ]; then
     echo ":: Installing Rolling Release"
     echo
-    git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git ~/Downloads/dotfiles
+    git clone --depth 1 https://github.com/quack-o/ml4w-dotfiles.git ~/Downloads/dotfiles
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
     exit 130    

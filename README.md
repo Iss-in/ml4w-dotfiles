@@ -8,7 +8,7 @@ YouTube Video [https://youtu.be/6B4Kf30CWLg](https://youtu.be/6B4Kf30CWLg)
 
 ## Installation
 
-The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/mylinuxforwork/dotfiles/wiki).
+The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/quack-o/ml4w-dotfiles/wiki).
 
 > PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
 
@@ -16,7 +16,7 @@ Please make sure that your system is up-to-date.
 
 ### Arch Linux (based)
 ```
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-arch.sh)
+bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/setup-arch.sh)
 ```
 
 You can also install the main release with your preferred AUR helper. 
@@ -33,20 +33,20 @@ Please rebuild all packages to emsure that you get the latest commit.
 
 ### Fedora Linux (based)
 ```
-bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
+bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/setup-fedora.sh)
 ```
 
 ## Troubleshooting
 
-You can find solutiosn to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
+You can find solutiosn to common issues in the Wiki troubleshooting section: https://github.com/quack-o/ml4w-dotfiles/wiki/Troubleshooting
 
 ## Documentation (Wiki)
 
-You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/mylinuxforwork/dotfiles/wiki)</b>
+You can find the complete documentation of the ML4W Dotfiles in the Wiki. <b>[Open the Wiki here](https://github.com/quack-o/ml4w-dotfiles/wiki)</b>
 
 ## Contributing
 
-Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bug, please [report your issue on this page](https://github.com/mylinuxforwork/dotfiles/issues).
+Thanks for using the ML4W Dotfiles on your system. If you find a problem or a bug, please [report your issue on this page](https://github.com/quack-o/ml4w-dotfiles/issues).
 
 You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to start a discussion with other users.
 
