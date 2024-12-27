@@ -1,0 +1,125 @@
+[[profile]]
+name = "dual"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+[[profile.output]]
+enable = true
+search = ["m=VG271U", "s=0x3131A817", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "2560,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = false
+search = ["m=0x09AE", "s=", "v=BOE"]
+
+[[profile.output]]
+enable = true
+search = ["m=XV272U KV", "s=33040C9E94203", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+
+
+[[profile]]
+name = "left"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+[[profile.output]]
+enable = false
+search = ["m=VG271U", "s=0x3131A817", "v=Acer Technologies"]
+
+[[profile.output]]
+enable = false
+search = ["m=0x09AE", "s=", "v=BOE"]
+
+[[profile.output]]
+enable = true
+search = ["m=XV272U KV", "s=33040C9E94203", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+
+[[profile]]
+name = "right"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+[[profile.output]]
+enable = true
+search = ["m=VG271U", "s=0x3131A817", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "2560,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = false
+search = ["m=0x09AE", "s=", "v=BOE"]
+
+[[profile.output]]
+enable = false
+search = ["m=XV272U KV", "s=33040C9E94203", "v=Acer Technologies"]
+
+
+
+
+
+[[profile]]
+name = "left_monitor"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+[[profile.output]]
+enable = false
+search = ["m=0x09AE", "s=", "v=BOE"]
+
+[[profile.output]]
+enable = true
+search = ["m=XV272U KV", "s=33040C9E94203", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+
+
+[[profile]]
+name = "right_monitor"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+[[profile.output]]
+enable = true
+search = ["m=VG271U", "s=0x3131A817", "v=Acer Technologies"]
+mode = "2560x1440@59.951Hz"
+position = "2560,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = false
+search = ["m=0x09AE", "s=", "v=BOE"]
+
+
+[[profile]]
+name = "laptop"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+
+[[profile.output]]
+enable = true
+search = ["m=0x09AE", "s=", "v=BOE"]
+mode = "1920x1080@60.003Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false

@@ -1,7 +1,12 @@
 #!/bin/bash
 
-monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .model')
-echo $monitor
+if [[ $XDG_CURRENT_DESKTOP == "sway" ]];then
+    monitor=$(swaymsg -t get_outputs -r | jq -r '.[] | select(.focused == true) | .model')
+else
+    monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .model')
+
+fi
+
 windows="$(eww active-windows)"
 
 # echo "$windows"

@@ -13,7 +13,7 @@ handle() {
       window_title=$(echo "$window_info" | jq '.title')
 
       # Check if the title matches the characteristics of the Bitwarden popup window
-      if [[ "$window_title" == *"(Bitwarden Password Manager) - Bitwarden"* ]]; then
+      if [[ "$window_title" == *"(Bitwarden Password Manager) - Bitwarden"* || "$window_title" == *"Sign in – Google accounts — Mozilla Firefox"*  ]]; then
       
         # echo $window_id, $window_title
         # hyprctl dispatch togglefloating address:0x$window_id

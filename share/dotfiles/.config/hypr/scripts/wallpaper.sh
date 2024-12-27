@@ -34,9 +34,14 @@ square_wallpaper="$HOME/.config/ml4w/cache/square_wallpaper.png"
 rasi_file="$HOME/.config/ml4w/cache/current_wallpaper.rasi"
 blur_file="$HOME/.config/ml4w/settings/blur.sh"
 default_wallpaper="$HOME/wallpaper/default.jpg"
+current_wallpaper="$HOME/.config/ml4w/cache/current_wallpaper.png"
+
 wallpaper_effect="$HOME/.config/ml4w/settings/wallpaper-effect.sh"
 blur="50x30"
 blur=$(cat $blur_file)
+
+
+cp $1 $current_wallpaper
 
 # Ensures that the script only run once if wallpaper effect enabled
 if [ -f $waypaper_running ] ;then 

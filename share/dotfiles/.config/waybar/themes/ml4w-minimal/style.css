@@ -39,7 +39,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(30,30,30,0.8);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
@@ -157,11 +157,16 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10,
-#custom-waybarthemes {
+#custom-waybarthemes,
+#custom-pulseIcon {
     margin-right: 16px;
     font-size: 14px;
     font-weight: bold;
     color: @iconcolor;
+}
+
+#custom-pulseIcon {
+    margin-right: 12px;
 }
 
 #custom-tools {
@@ -424,7 +429,12 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    margin:0px 10px 0px 0px;
+    /* margin:0px 10px 0px 0px; */
+    background-color: rgba(0,0,0,0.4);
+
+    border-radius : 6px;
+    padding: 0px 10px;
+    margin:  2px 2px;
 }
 
 #tray > .passive {
@@ -462,7 +472,7 @@ window#waybar.empty #window {
 #taskbar button.active {
     margin : 4px 0px;
     border-radius : 4px;
-    background: 20% rgba(99,99,99,0.7) ;
+    background: 20% rgba(255,255,255,0.3) ;
 } 
 
 
@@ -479,7 +489,7 @@ window#waybar.empty #window {
     /* border : 1px solid black; */
     /* background-color: #F5F5F5; */
     /* font-size: large; */
-    color: @color11;
+    color: @color14;
     /* box-shadow: 0px 0px 4px rgba(0,0,0,0.5); */
     background-size: 5px;
     /* margin : 5px 1px;

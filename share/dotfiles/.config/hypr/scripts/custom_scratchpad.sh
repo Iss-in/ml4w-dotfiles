@@ -21,31 +21,6 @@
 
 current_workspace=$(hyprctl activeworkspace -j | jq '.id' )
 
-toggle_app() {
-
-    class="$1"
-    run_command="$2"
-    workspace="$3"
-
-    echo $class $run_command $workspace
-    app_workspace=$(hyprctl clients -j | jq --arg class $class -r '.[] | select(.class == $class) | .workspace.id')
-
-    address=$(hyprctl clients -j | jq --arg class $class -r '.[] | select(.class == $class) | .address')
-
-    if [ -z $app_workspace ] ;then
-        echo "no window"
-        # nautilus -w & disown
-        eval "$run_command" & disown
-        hyprctl dispatch togglespecialworkspace $workspace
-    elif [ $current_workspace -ne $app_workspace ]; then
-        echo "app in another workspace {app_workspace}"
-        echo \"$current_workspace,address:$address\"
-        hyprctl dispatch movetoworkspacesilent "$current_workspace,address:$address"
-    else
-        echo "nautilus in same workspace $app_workspace, moving to special:$workspace"
-        hyprctl dispatch movetoworkspacesilent "special:${workspace},address:$address"
-    fi
-}
 
 
 toggle_workspace() {
@@ -63,9 +38,36 @@ toggle_workspace() {
         echo "no window"
         # nautilus -w & disown
         eval "$2" & disown
+    else
+        hyprctl dispatch togglespecialworkspace $workspace
     fi
-    hyprctl dispatch togglespecialworkspace $workspace
-    # fi
+}
+
+
+toggle_app() {
+
+    class="$1"
+    run_command="$2"
+    workspace="$3"
+
+    echo $class $run_command $workspace
+    app_workspace=$(hyprctl clients -j | jq --arg class $class -r '.[] | select(.class == $class) | .workspace.id')
+
+    address=$(hyprctl clients -j | jq --arg class $class -r '.[] | select(.class == $class) | .address')
+
+    if [ -z $app_workspace ] ;then
+        echo "no window"
+        # nautilus -w & disown
+        eval "$run_command" & disown
+        hyprctl dispatch togglespecialworkspace $workspace
+    elif [ $current_workspace -ne $app_workspace ]; then
+        echo "app in another workspace ${app_workspace}"
+        echo \"$current_workspace,address:$address\"
+        hyprctl dispatch movetoworkspacesilent "$current_workspace,address:$address"
+    else
+        echo "$workspace in same workspace $app_workspace, moving to special:$workspace"
+        hyprctl dispatch movetoworkspacesilent "special:${workspace},address:$address"
+    fi
 }
 
 #!/bin/bash
@@ -75,7 +77,7 @@ while getopts 'nsv' flag; do
     n)  class="org.gnome.Nautilus" 
         run_command="nautilus -w"
         workspace="nautilus"
-        toggle_workspace "$class" "$run_command" "$workspace"
+        toggle_app "$class" "$run_command" "$workspace"
 	    ;;
     s)  class="com.vixalien.sticky" 
         run_command="sticky-notes"

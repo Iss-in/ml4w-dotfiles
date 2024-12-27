@@ -1,0 +1,80 @@
+[[profile]]
+name = "dual"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+    [[profile.output]]
+    search  = "eDP-1" 
+    enable = false
+
+    [[profile.output]]
+    search = "HDMI-A-1"
+    enable = true
+    mode = "2560x1440@59.95Hz"
+    position = "0,0"
+    scale = 1
+
+    [[profile.output]]
+    search  = "DP-1" 
+    enable = true
+    mode = "2560x1440@59.95Hz"
+    position = "2560,0"
+    #Transform = normal
+    scale = 1
+
+[[profile]]
+name = "left"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+    [[profile.output]]
+    search  = "eDP-1" 
+    enable = false
+
+    [[profile.output]]
+    search = "HDMI-A-1"
+    enable = true
+    mode = "2560x1440@59.95Hz"
+    position = "0,0"
+    scale = 1
+
+
+    [[profile.output]]
+    search = "DP-1"
+    enable = false
+
+
+
+
+
+[[profile]]
+name = "right"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+
+    [[profile.output]]
+    search  = "eDP-1" 
+    enable = false
+
+    [[profile.output]]
+    search = "HDMI-A-1"
+    enable = false
+
+    [[profile.output]]
+    search  = "DP-1" 
+    enable = true
+    mode = "2560x1440@59.95Hz"
+    position = "2560,0"
+    #Transform = normal
+    scale = 1
+
+
+[[profile]]
+name = "laptop"
+exec = ["notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\""]
+    [[profile.output]]
+    search  = "eDP-1" 
+    enable = true
+    exec = ["echo This is output $SHIKANE_OUTPUT_NAME"]
+    mode = "1920x1080@60.00Hz"
+    position = "0,0"
+    #transform = normal
+    scale = 1
+

@@ -24,15 +24,15 @@
     ],
 
     // Updates Count
-    "custom/updates": {
-        "format": "   {}",
-        "escape": true,
-        "return-type": "json",
-        "exec": "~/.config/ml4w/scripts/updates.sh",
-        "restart-interval": 60,
-        "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
-        "on-click-right": "~/.config/ml4w/settings/software.sh"
-    },
+    // "custom/updates": {
+    //     "format": "   {}",
+    //     "escape": true,
+    //     "return-type": "json",
+    //     "exec": "~/.config/ml4w/scripts/updates.sh",
+    //     "restart-interval": 60,
+    //     "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
+    //     "on-click-right": "~/.config/ml4w/settings/software.sh"
+    // },
 
     // Pulseaudio
     // "pulseaudio": {
@@ -76,15 +76,18 @@
     // Modules Right    
     "modules-right": [
         "custom/updates",
+        "custom/pulseIcon",
         "pulseaudio",
 //"backlight",
-        "bluetooth",
+        // "bluetooth",
         "battery", 
 // "network",
         // "group/hardware",
-        "group/tools",
+              "custom/hypridle",
+      "custom/hyprshade",
+        // "group/tools",
         // "custom/exit",
-        "group/settings",
+        // "group/settings",
         // "clock",
 "tray",
         "custom/ml4w-welcome",
