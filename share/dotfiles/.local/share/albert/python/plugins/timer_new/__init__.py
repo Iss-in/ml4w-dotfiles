@@ -28,7 +28,7 @@ md_iid = '2.0'
 md_version = "1.7"
 md_name = "Timer2"
 md_description = "Set up timers"
-md_lib_dependencies = "dbus-python"
+md_lib_dependencies = ["dbus-python", "notify-py"]
 
 md_license = "BSD-2"
 md_url = "https://github.com/albertlauncher/python/tree/master/timer"
