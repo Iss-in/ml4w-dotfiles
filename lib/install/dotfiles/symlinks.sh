@@ -65,41 +65,41 @@ for f in $files; do
     fi
 done
 
-# Check .local
-files=$(ls -a $HOME/$dot_folder/.local)
+# Check .local/share
+files=$(ls -a $HOME/$dot_folder/.local/share)
 for f in $files; do
     if [ ! "$f" == "." ] && [ ! "$f" == ".." ]; then
-        if [ -d  $HOME/$dot_folder/.local/$f ] ;then
-            # echo ":: Checking for directory $HOME/.local/$f"
-            if [ -L $HOME/.local/$f ] ;then
-                rm $HOME/.local/$f
+        if [ -d  $HOME/$dot_folder/.local/share/$f ] ;then
+            # echo ":: Checking for directory $HOME/.local/share/$f"
+            if [ -L $HOME/.local/share/$f ] ;then
+                rm $HOME/.local/share/$f
             fi
-            if [ -f $HOME/.local/$f ] ;then
-                rm $HOME/.local/$f
+            if [ -f $HOME/.local/share/$f ] ;then
+                rm $HOME/.local/share/$f
             fi
-            if [ -d $HOME/.local/$f ] ;then
-                rm -rf $HOME/.local/$f
+            if [ -d $HOME/.local/share/$f ] ;then
+                rm -rf $HOME/.local/share/$f
             fi
-            ln -s $HOME/$dot_folder/.local/$f $HOME/.local
-            if [ -L $HOME/.local/$f ] ;then
-                _writeLog 1 "$HOME/$dot_folder/.local/$f -> $HOME/.local/$f"
+            ln -s $HOME/$dot_folder/.local/share/$f $HOME/.local/share
+            if [ -L $HOME/.local/share/$f ] ;then
+                _writeLog 1 "$HOME/$dot_folder/.local/share/$f -> $HOME/.local/share/$f"
             else
-                _writeLog 2 "$HOME/$dot_folder/.local/$f -> $HOME/.local/$f"
+                _writeLog 2 "$HOME/$dot_folder/.local/share/$f -> $HOME/.local/share/$f"
             fi
         fi
-        if [ -f  $HOME/$dot_folder/.local/$f ] ;then
-            # echo ":: Checking for file $HOME/.local/$f"
-            if [ -L $HOME/.local/$f ] ;then
-                rm $HOME/.local/$f
+        if [ -f  $HOME/$dot_folder/.local/share/$f ] ;then
+            # echo ":: Checking for file $HOME/.local/share/$f"
+            if [ -L $HOME/.local/share/$f ] ;then
+                rm $HOME/.local/share/$f
             fi
-            if [ -f $HOME/.local/$f ] ;then
-                rm $HOME/.local/$f
+            if [ -f $HOME/.local/share/$f ] ;then
+                rm $HOME/.local/share/$f
             fi
-            ln -s $HOME/$dot_folder/.local/$f $HOME/.local
-            if [ -L $HOME/.local/$f ] ;then
-                _writeLog 1 "$HOME/$dot_folder/.local/$f -> $HOME/.local/$f"
+            ln -s $HOME/$dot_folder/.local/share/$f $HOME/.local/share
+            if [ -L $HOME/.local/share/$f ] ;then
+                _writeLog 1 "$HOME/$dot_folder/.local/share/$f -> $HOME/.local/share/$f"
             else
-                _writeLog 2 "$HOME/$dot_folder/.local/$f -> $HOME/.local/$f"
+                _writeLog 2 "$HOME/$dot_folder/.local/share/$f -> $HOME/.local/share/$f"
             fi
         fi
     fi
