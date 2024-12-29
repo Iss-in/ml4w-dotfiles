@@ -11,7 +11,7 @@
 # Define threshholds for color indicators
 # ----------------------------------------------------- 
 
-threshhold_green=0
+threshhold_green=20
 threshhold_yellow=25
 threshhold_red=100
 install_platform="$(cat ~/.config/ml4w/settings/platform.sh)"
@@ -62,5 +62,5 @@ fi
 if [ "$updates" -gt $threshhold_green ]; then
     printf '{"text": "%s", "alt": "%s", "tooltip": "Click to update your system", "class": "%s"}' "$updates" "$updates" "$updates" "$css_class"
 else
-    printf '{"text": "0", "alt": "0", "tooltip": "No updates available", "class": "green"}'
+    printf '{"text": "", "alt": "", "tooltip": "No updates available", "class": "green"}'
 fi

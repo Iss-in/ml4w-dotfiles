@@ -49,5 +49,5 @@ packages=(
     "ttf-fira-sans" 
     "ttf-fira-code" 
     "ttf-firacode-nerd"
-    "aylurs-gtk-shell" 
+    # "aylurs-gtk-shell" 
 );
