@@ -49,15 +49,24 @@ getUpcomingTime() {
 #   jq -r '.["1"].interval' /tmp/events.json 
 # }
 
+updateAll(){
+  # echo 1 >> /home/kushy/test.txt
+  # notify-send running now
+  
+  eww update tasks-json="$(cat /tmp/events.json)"
+  echo "hehe"
+}
+
 
 verbose='false'
-while getopts 'abcdue:v' flag; do
+while getopts 'abcduzv' flag; do
   case "${flag}" in
     a) getCurrentTitle;;
     b) getCurrentInterval;;
     c) getNextTitle;;
     d) getNextInterval;;
     u) getUpcomingTime;;
+    z) updateAll;;
 
     v) verbose='true' ;;
     *) error "Unexpected option ${flag}" ;;

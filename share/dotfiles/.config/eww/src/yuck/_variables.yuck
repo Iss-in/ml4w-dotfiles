@@ -165,13 +165,21 @@
 
 
 ;; keep updating events from google calender to a file
-;;(defpoll current :interval "1m"
-;;	"python /home/kushy/.config/eww/scripts/gcalcli_eww/gcalcli.py")
+(defpoll current :interval "60s"
+	"/bin/python3 /home/kushy/.config/eww/scripts/gcalcli_eww/gcalcli.py")
 
-(defpoll current_title :interval "1m"
+(defpoll current_title :interval "60s"
 	"./scripts/getEvents.sh -a")
+
+;(defpoll update :interval "50s"
+;	"bash /home/kushy/.config/eww/scripts/getEvents.sh -z")
+
+
 (defpoll current_interval :interval "1m"
 	"./scripts/getEvents.sh -b")
+
+(defpoll later_events :interval "1m"
+	"./scripts/getEvents.sh -l")
 
 (defpoll next_title :interval "1m"
 	"./scripts/getEvents.sh -c")
@@ -183,9 +191,17 @@
 
 
 (defpoll calendar_day :interval "10h"
-    "date '+%d'")
+    "date '+%d' ")
 (defpoll calendar_month :interval "10h"
 	"date '+%m'")
-;;  "scripts/calendar")
+;;  "scripts/calendar"
 (defpoll calendar_year :interval "10h"
     "date '+%Y'")
+
+
+
+(defpoll update :interval "60s"
+	"./scripts/getEvents.sh -z")
+
+(defpoll tasks-json :interval "60s"
+"./scripts/getEvents.sh -z")

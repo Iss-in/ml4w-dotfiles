@@ -1,0 +1,4 @@
+swaymsg 'client.focused          "#F1E3E1" "#F1E3E1"      "#000000"   "#4d4d4c" "#F2F2F2"'  
+swaymsg 'client.focused_inactive "#F2F2F2" "#ebebeb"  "#666666"   "#000000"     "#999999"'
+swaymsg 'client.unfocused        "#F2F2F2" "#F2F2F2"      "#4D4D4D"   "#000000"     "#f6f5f4"'
+swaymsg 'titlebar_border_thickness 0'

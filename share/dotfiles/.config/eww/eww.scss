@@ -14,7 +14,17 @@
 
 // @import "./src/scss/clock/index.scss";
 
+
+// Common
+$font_sans: "Outfit Bold";
+$font_sans_light: "Outfit Medium";
+
+$round_max: 999px;
+$sidebar_corner_radius: dpi(20px);
+
 @import "./src/scss/calendar/index.scss";
+@import "./src/scss/sidebar/index.scss";
+
 // @import "./src/scss/trade-counter/index.scss";
 
 // @import "./src/scss/quotes/index.scss";

@@ -6,8 +6,9 @@
 monitor=$(hyprctl activeworkspace | grep -v grep |  grep 'monitorID') #get active monitor
 space=$( hyprctl activeworkspace | grep 'workspace ' | grep -v grep |  awk {'print $3'}) #get active workspace
 spaces=$(hyprctl workspaces | grep -B 2 "$monitor" | grep -v grep  | grep -v special | grep workspace | awk {'print $3'}) #get workspaces on the same monitor
-position=$(echo "$spaces" | grep -v grep | grep -n $space | cut -d ":" -f 1) #learn in which position of the workspaces list this workspace is (i.e 1st, 2nd, etc.)
+spaces=$(echo "$spaces" | sort -n)
 
+position=$(echo "$spaces" | grep -v grep | grep -n $space | cut -d ":" -f 1) #learn in which position of the workspaces list this workspace is (i.e 1st, 2nd, etc.)
 
 # dont do anything if monitor has single workspace, because it will then switch to previous active workspace on any monitor
 if [[ $(echo "$spaces" | wc -l) -eq 1 ]];then
@@ -15,10 +16,10 @@ if [[ $(echo "$spaces" | wc -l) -eq 1 ]];then
 fi
 
 
-echo $monitor 
-echo $space 
-echo $spaces 
-echo $position
+echo monitor $monitor 
+echo space $space 
+echo spaces $spaces 
+echo position $position
 # choose next or previous workspace according to input
 # if on the first or last workspace, cycle to the last or first
 
@@ -28,6 +29,7 @@ get_target () {
         if [[ "$position" == $(echo "$spaces" | wc -l) ]]; then
         target=1
         else
+        echo "moving to next target"
         target=$(($position + 1))
     fi;;
     prev)

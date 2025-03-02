@@ -23,7 +23,7 @@ function close(){
     for value in "${do_not_kill[@]}"; do
         # if [[ $app_id == *"$value"* || $class == *"$value"* || $title == *"$value"* ]];then
         if [[  $class == "org.gnome.Nautilus"  ]];then
-            ~/.config/hypr/scripts/custom_scratchpad.sh -n 
+            ~/.config/hypr/scripts/scratchpad.sh -n 
         elif [[  $class == *"$value"*  ]];then
 
             # echo "no kill app"

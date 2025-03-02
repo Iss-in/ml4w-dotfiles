@@ -1,6 +1,6 @@
 {
     "security.workspace.trust.untrustedFiles": "open",
-    "window.titleBarStyle": "custom", 
+    
     "editor.fontSize": 12,
     // "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'Font Awesome 6 Pro Regular','monospace', monospace",
     "editor.fontFamily": "'PragmataPro Mono Regular', 'Droid Sans Mono', 'Font Awesome 6 Pro Regular','monospace', monospace",
@@ -13,6 +13,7 @@
     },
     "jupyter.askForKernelRestart": false,
     "editor.fontLigatures": false,
+    "editor.links" : true,
     "python.defaultInterpreterPath": "/home/kushy/Syncthing/Projects/Shoonya/venv",
     "pylint.lintOnChange": true,
     "git.enableSmartCommit": true,
@@ -46,6 +47,16 @@
     ],
     "explorer.confirmDelete": false,
     "workbench.colorTheme": "Default Light+",
+    "redhat.telemetry.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "quarkus.tools.alwaysShowWelcomePage": false,
+    "debug.disassemblyView.showSourceCode": false,
+    "window.title": "${rootPath}",
+    "window.menuBarVisibility": "toggle",
+    "window.titleBarStyle": "custom",
+    "window.customTitleBarVisibility": "auto",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "sonarlint.focusOnNewCode": true,
     // "workbench.colorTheme": "Default Light+",
 
 }

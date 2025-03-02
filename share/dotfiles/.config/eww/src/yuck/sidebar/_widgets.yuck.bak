@@ -1,0 +1,78 @@
+;; sidebar Widgets ;;
+(defwidget sidebar_panel []
+	(box :class "sidebar-box" 
+		 :orientation "v"
+		 :space-evenly false
+		(box :class "sidebar-inner-box"
+			(calendar :class "cal" 
+				:day calendar_day 
+				:month calendar_month 
+				:year calendar_year
+			)
+		)
+		; (calendar-custom)
+		(tasks)
+	)
+)
+
+
+(defwidget calendar-custom []
+	(box :class "sidebar-inner-box"
+		(calendar :class "cal" 
+			:day calendar_day 
+			:month calendar_month 
+			:year calendar_year
+		)
+	)
+)
+
+(defwidget tasks []
+
+
+	(scroll
+		:vscroll true
+		:hscroll false
+		:class "tasks-scroll-container"
+		(box :class "tasks"
+			:orientation "vertical"
+			:halign "fill"
+
+			(for task in tasks-json
+				(box :class "task"
+					:halign "start"
+					:valign "fill"
+					:space-evenly false
+					(box :halign "center"
+						:valign "fill"
+						:class "type")
+					(box
+						:class "text"
+						:valign "center"
+						:space-evenly false
+						:orientation "vertical"
+						:spacing 6
+						(box :class "title" :halign "start" "${task.title}")
+						(box
+							:class "when"
+							:halign "start"
+							:valign "center"
+							:space-evenly false
+							:spacing 6
+							(box
+								:space-evenly false
+								:spacing 6
+								:valign "center"
+								:visible "${task.time_start != "null"}"
+								(box :valign "center" :halign "center" :class "separator")
+								(box :class "time" "${task.time_end == "null" ? task.time_start : task.time_start + "-" + task.time_end}")
+								
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)
+
+(defvar tasks-json "[]")

@@ -39,7 +39,7 @@
 }
 
 window#waybar {
-    background-color: rgba(30,30,30,0.8);
+    background-color: rgba(0,0,0,0.8);
     border-bottom: 0px solid #ffffff;
     /* color: #FFFFFF; */
     transition-property: background-color;
@@ -63,7 +63,7 @@ window#waybar {
 
 #workspaces button {
     border: 0px;
-    margin:4px 5px 4px 0px;
+    margin: 4px 2px;
     padding:0px 4px 0px 4px;
     color: @textcolor3;
     transition: all 0.5s ease-in-out;
@@ -72,6 +72,12 @@ window#waybar {
 #workspaces button.active {
     color: @textcolor1;
     background: @workspacesbackground2;
+    border-radius:4px;
+}
+
+#workspaces button.empty {
+    color: #888888;
+    /* background: @workspacesbackground2; */
 }
 
 #workspaces button:hover {
@@ -79,6 +85,38 @@ window#waybar {
     background: @workspacesbackground2;
     border-radius: 15px;
 }
+
+/* Square one */
+/* #workspaces {
+    margin: 8px 7px;
+    border: 0px;
+    font-size:18px;
+    color: @textcolor1;
+    border-radius:0px;
+}
+
+#workspaces button {
+    border: 0px;
+    padding:0px 0px;
+    color: @textcolor3;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+
+}
+
+#workspaces button.active {
+    color: red;
+    border-radius:4px;
+}
+
+
+
+#workspaces button:hover {
+    color: @textcolor1;
+    border-radius: 15px;
+} */
+
+
 
 /* -----------------------------------------------------
  * Tooltips
@@ -102,16 +140,16 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-    margin: 0px 15px 0px 0px;
+    margin: 0px 0px 0px 0px;
     border-radius: 12px;
     color:@textcolor;
     font-size:14px;
     font-weight:normal;
 }
-
+/* 
 window#waybar.empty #window {
     background-color:transparent;
-}
+} */
 
 /* -----------------------------------------------------
  * Modules
@@ -157,8 +195,7 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10,
-#custom-waybarthemes,
-#custom-pulseIcon {
+#custom-waybarthemes {
     margin-right: 16px;
     font-size: 14px;
     font-weight: bold;
@@ -166,7 +203,10 @@ window#waybar.empty #window {
 }
 
 #custom-pulseIcon {
-    margin-right: 12px;
+    margin-right: 6px;
+    font-size: 14px;
+    color: @iconcolor;
+
 }
 
 #custom-tools {
@@ -215,20 +255,23 @@ window#waybar.empty #window {
 
 
 #custom-ml4w-welcome {
-    margin-right: 12px;
+    /* margin-right: 0px;
     background-image: url("../assets/ml4w-icon.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain; 
-    padding-right: 20px;
+    padding-right: 30px; */
+    background-color: red;
+
 }
 
 #custom-ml4w-hyprland-settings {
-    margin-right: 12px;
+    /* margin-right: 12px;
     background-image: url("../assets/hyprland-icon-20.png");
     background-repeat: no-repeat;
     background-position: center;
-    padding-right: 16px;
+    padding-right: 16px; */
+    background-color: red;
 }
 
 

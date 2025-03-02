@@ -1,0 +1,13 @@
+;; Calendar Windows ;;
+(defwindow sidebar
+	:monitor "VG271U"
+	:stacking "fg"
+    :windowtype "normal"
+    :wm-ignore false
+
+	:geometry (geometry :x "0%" 
+						:y "0%" 
+						:width "400px" 
+						:height "1400px"
+						:anchor "top right")
+(sidebar_panel))

@@ -17,6 +17,7 @@ alias v='$EDITOR'
 alias vim='$EDITOR'
 alias ts='~/.config/ml4w/scripts/snapshot.sh'
 alias wifi='nmtui'
+alias rm='trash'
 alias cleanup='~/.config/ml4w/scripts/cleanup.sh'
 # -----------------------------------------------------
 # ML4W Apps
@@ -48,13 +49,14 @@ alias gpl="git pull"
 alias gst="git stash"
 alias gsp="git stash; git pull"
 alias gcheck="git checkout"
+alias grep="grep -i"
 alias gcredential="git config credential.helper store"
 
 # -----------------------------------------------------
 # Scripts
 # -----------------------------------------------------
 alias ascii='~/.config/ml4w/scripts/figlet.sh'
-
+alias uuid='ls -lha /dev/disk/by-uuid'
 # -----------------------------------------------------
 # System
 # -----------------------------------------------------

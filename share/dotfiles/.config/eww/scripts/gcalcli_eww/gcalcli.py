@@ -4,18 +4,18 @@ import json
 from datetime import datetime, timedelta
 import re 
 import argparse
+import os
 # Run the gcalcli command
 current_date = datetime.now()
 next_date = current_date + timedelta(days=1)
 command = ["gcalcli", "--refresh" ,"agenda", current_date.strftime('%Y-%m-%d'), next_date.strftime('%Y-%m-%d'), "--details", "end"]
 result = subprocess.run(command, capture_output=True, text=True)
-command_update = ["/bin/eww", "update"]
 
 # print(result)
 
 # %%
 gcalcli_output = str(result.stdout)
-print(str(gcalcli_output))
+# print(str(gcalcli_output))
 
 # %%
 
@@ -25,7 +25,7 @@ def strip_ansi_colors(text):
 
 # %%
 date_str = datetime.now().strftime('%a %b %d') + ' '
-print(date_str)
+# print(date_str)
 resultstr = strip_ansi_colors(gcalcli_output).replace(date_str, "", 1)
 
 
@@ -40,16 +40,19 @@ for line in resultstr.splitlines():
         start_time = match.group("start_time")
         end_time = match.group("end_time")
         title = match.group("title")
-        event = {'start':start_time, 'end':end_time, 'title':title}
+        event = {'time_start':start_time, 'time_end':end_time, 'title':title}
         # event = {'interval':f"{start_time}-{end_time}", 'title':title}
 
         events.append(event)
     elif line != '':
-        full_day_events.append({counter:line})
-        counter = counter + 1
-        
-print(events)
-print(full_day_events)
+        full_day_events.append({line})
+        # counter = counter + 1
+
+with open("/tmp/all_events.json", "w") as file:
+    json.dump(events, file, indent=4) 
+    
+# print(events)
+# print(full_day_events)
 
 # %%
 def dt(time_str):
@@ -61,28 +64,43 @@ def dt(time_str):
 # %%
 
 
+# def get_events():
+#     current_event = ''
+#     next_event = {}
+
+#     current_time = datetime.now()
+#     for i, event in enumerate(events):
+#         if dt(event['start']) < current_time and dt(event['end']) >current_time:
+#             current_event = event
+#             if i < len(events) - 1:
+#                 next_event = events[i+1]
+#             print(f"current event is {current_event}")
+#             print(f"next event is {next_event}")
+#             break
+#         elif dt(event['start']) > current_time:
+#             next_event = event
+#             print(f"no current event next event is {next_event}")
+#             break
+#     data = {'0':current_event ,'1': next_event}
+#     with open("/tmp/events.json", "w") as file:
+#         json.dump(data, file, indent=4) 
+#     with open("/tmp/entire_day_events.json", "w") as file:
+#         json.dump(full_day_events, file, indent=4) 
+        
+
 def get_events():
     current_event = ''
-    next_event = {}
+    upcoming_events = {}
 
     current_time = datetime.now()
     for i, event in enumerate(events):
-        if dt(event['start']) < current_time and dt(event['end']) >current_time:
-            current_event = event
-            if i < len(events) - 1:
-                next_event = events[i+1]
-            print(f"current event is {current_event}")
-            print(f"next event is {next_event}")
-            break
-        elif dt(event['start']) > current_time:
-            next_event = event
-            print(f"no current event next event is {next_event}")
-            break
-    data = {'0':current_event ,'1': next_event}
-    with open("/tmp/events.json", "w") as file:
-        json.dump(data, file, indent=4) 
-    with open("/tmp/entire_day_events.json", "w") as file:
-        json.dump(full_day_events, file, indent=4) 
+        if dt(event['time_start']) < current_time and dt(event['time_end']) >current_time:
+            event['active'] = True
+        else:
+            event['active'] = False
+
+        
+
 
 def getCurrentEvent():
     current_event, b = get_events()
@@ -94,9 +112,28 @@ def getNextEvent():
     
 
 # %%
-get_events()
-result = subprocess.run(command_update, capture_output=True, text=True)
 
+# %%
+get_events()
+
+# update eww
+# command_update = ["/bin/eww", "update"]
+# result = subprocess.run(command_update, capture_output=True, text=True)
+# os.system("/bin/eww update tasks-json=\"%s\"" % (json.dumps(events).replace('"', '\\"')))
+
+
+# command = ["/bin/eww", "update", f"tasks-json={json.dumps(events)}"]
+# subprocess.run(command, check=True)
+
+# command = ["notify-send", "update", "body"]
+# subprocess.run(command, check=True)
+
+#         json.dump(data, file, indent=4) 
+with open("/tmp/events.json", "w") as file:
+    json.dump(events, file, indent=4) 
+
+# print(f"{json.dumps(events)}")
+# return events
 
 # %%
 # if __name__ == "__main__":

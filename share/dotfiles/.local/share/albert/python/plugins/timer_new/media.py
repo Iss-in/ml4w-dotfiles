@@ -14,4 +14,6 @@ def get_icon_path():
 
 
 def play_sound():
-    subprocess.call(("paplay", SOUND_FILE))
+    print("playing dound", flush=True)
+
+    subprocess.call(("bash", "/home/kushy/.config/swaync/scripts/ping.sh"))

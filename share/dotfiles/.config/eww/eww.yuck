@@ -27,6 +27,11 @@
 (include "./src/yuck/calendar/_windows.yuck")
 
 
+(include "./src/yuck/sidebar/_widgets.yuck")
+(include "./src/yuck/sidebar/_windows.yuck")
+
+
+
 (include "./src/yuck/bar/_widgets.yuck")
 (include "./src/yuck/bar/_windows.yuck")
 

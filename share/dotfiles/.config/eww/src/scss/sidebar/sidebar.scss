@@ -1,0 +1,138 @@
+/* Created   by https://github.com/rxyhn 
+   Designed  by https://github.com/rxyhn
+   Maintaned by https://github.com/rxyhn
+*/
+@import "../../../../../../.cache/wal/colors.scss";
+
+
+
+// Global
+*{
+  all:unset;
+  font-size: 14px;
+  font-family: "Fira Sans semibold", sans-serif;
+  font-weight: normal;
+  }
+  
+  // Variable Color's
+  $background: #1A1B26;
+  // $foreground: #A9B1D6;
+  
+  $black: #222222;
+  $gray: #565F89;
+  $red: #F7768E;
+  $green: #608B4E;
+  $yellow: #E0AF68;
+  $blue: #7AA2F7;
+  $magenta: #BB9AF7;
+  $cyan: #7DCFFF;
+  $white: $foreground;
+  
+
+  // sidebar
+  .sidebar-box {
+    background-color: $black;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    // box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.377);
+  // border : 3px solid $green;
+    font-size: 14px;
+    .sidebar-inner-box {
+        padding: 1rem 1rem .2rem;
+  
+        .cal {
+            &.highlight {
+                padding: 10rem;
+            }
+  
+            padding: .3rem ;
+            margin-left: 10px;
+        }
+    }
+  }
+  
+  sidebar:selected {
+    // color: $blue;
+    background-color: $color11;
+    margin: 0 0 5px 0;
+    border-radius: 4px;
+  }
+  
+  sidebar.header {
+  color: $blue;
+  font-weight: bold;
+  }
+  
+  sidebar.button {
+  color: $magenta;
+  }
+  
+  sidebar.highlight {
+  color: $magenta;
+  font-weight: bold;
+  }
+  
+  sidebar:indeterminate {
+  color: $foreground;
+  }
+  
+
+
+// sidebar
+
+$border-blue: #21ABE7;
+
+
+
+.events {
+    background: $black;
+    margin :  10px;
+    padding : 15px ;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow : none;
+    // font-family: Inter UI, ;
+    // box-shadow: 2px 0px 2px 2px rgba(200,200,200,0.3);
+    .tasks  {
+      padding : 0 0 20px 0 ;
+      box-shadow : none;
+      .sep {
+          font-size: 15px;
+          font-weight: 700;
+          // background: $black;
+          padding : 10px 0 0 0 ;
+      }
+      .task {
+
+        
+          background-color: blue;
+          color: yellow;
+          // border-left: 4px solid $color11;
+          border-radius: 4px;
+          padding : 0 0 0 5px;
+          font-size: 16px;
+        
+      }
+
+      .next_event{
+          // background-color: #E4F5FF;
+          // border-left: 4px solid $color11;
+          border-radius: 0px;
+          padding : 0 0 0 5px;
+          font-size: 20px;
+      }
+    }
+}
+
+
+.tasks.active {
+  color: skyblue;
+  .time{
+    color: skyblue;
+  }
+}
+
+// .tasks.inactive {
+//   color: yellow;
+// }

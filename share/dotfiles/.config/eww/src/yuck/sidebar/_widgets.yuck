@@ -1,0 +1,66 @@
+;; sidebar Widgets ;;
+(defwidget sidebar_panel []
+	(box :class "sidebar-box" 
+		 :orientation "v"
+		 :space-evenly false
+		(calendar-custom)
+		(tasks)
+	)
+)
+
+
+(defwidget calendar-custom []
+	(box :class "sidebar-inner-box"
+		(calendar :class "cal" 
+			:day calendar_day 
+			:month calendar_month 
+			:year calendar_year
+		)
+	)
+)
+
+(defwidget tasks []
+	(box :class "events"
+		:orientation "vertical"
+		:halign "fill"
+
+		(box :class "no-tasks"
+			:orientation "vertical"
+			:space-evenly false
+			:valign "center"
+			:visible "${arraylength(tasks-json) == 0}"
+			(box :class "symbol" "")
+			"You have no tasks")
+
+		(for task in tasks-json
+			(box :class "tasks ${task.active  ? "active" : "inactive"}"
+				:halign "fill"
+				:valign "fill"
+				:space-evenly true
+				(box
+					:valign "center"
+					:space-evenly true
+					:orientation "horizontal"
+					(box :class "title" :halign "start" "  ${task.title}")
+					(box
+						:class "when"
+						:halign "end"
+						:valign "center"
+						:space-evenly true
+						(box
+							:class "duration"
+							:space-evenly true
+							:spacing 6
+							:valign "center"
+							:halign "end"
+							:visible "${task.time_start != "null"}"
+							(box :class "time"  :halign "end" "${task.time_end == "null" ? task.time_start : task.time_start + "-" + task.time_end}")
+							
+						)
+					)
+				)
+			)
+		)
+	)
+)
+

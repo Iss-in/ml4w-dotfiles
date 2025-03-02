@@ -7,7 +7,7 @@ case "$DEFAULT_SINK" in
     ICON=""  # HDMI Icon
     ;;
   *pci*)
-    ICON=""  # Headphones or Analog Speakers
+    ICON=""  # Headphones or Analog Speakers
     ;;
   *)
     ICON="󰖂"  # Default Speaker Icon
