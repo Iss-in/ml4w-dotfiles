@@ -7,11 +7,13 @@ _writeHeader "SDDM"
 current_display_manager=""
 
 _detectCurrentDisplayManager() {
-    execstart=$(grep 'ExecStart=' /etc/systemd/system/display-manager.service)
-    arrIN=(${execstart//\// })
-    for i in "${arrIN[@]}"; do
-        current_display_manager=$i
-    done
+    if [ -f /etc/systemd/system/display-manager.service ]; then
+        execstart=$(grep 'ExecStart=' /etc/systemd/system/display-manager.service)
+        arrIN=(${execstart//\// })
+        for i in "${arrIN[@]}"; do
+            current_display_manager=$i
+        done
+    fi
 }
 
 _enterDisplayManager() {
@@ -21,11 +23,13 @@ _enterDisplayManager() {
 
 _confirmCurrentDisplayManager() {
     _detectCurrentDisplayManager
-    _writeLogTerminal 0 "The script has detected $current_display_manager as your current display manager"
-    if gum confirm "Is this correct" ;then
-        _writeLogTerminal 1 "$current_disyplay_manager confirmed"
-    else
-        _enterDisplayManager
+    if [ ! -z $current_display_manager ]; then
+        _writeLogTerminal 0 "The script has detected $current_display_manager as your current display manager"
+        if gum confirm "Is this correct"; then
+            _writeLogTerminal 1 "$current_disyplay_manager confirmed"
+        else
+            _enterDisplayManager
+        fi
     fi
 }
 
@@ -45,9 +49,9 @@ _disableDisplayManager() {
     _writeLog 0 "Current display manager deactivated."
 }
 
-if [ -z $automation_displaymanager ] ;then
+if [ -z $automation_displaymanager ]; then
     _detectCurrentDisplayManager
-    
+
     if [ -f /etc/systemd/system/display-manager.service ]; then
         disman=0
         _writeLogTerminal 0 "You have already installed a display manager."
@@ -56,29 +60,29 @@ if [ -z $automation_displaymanager ] ;then
         dmsel=$(gum choose "Keep current setup" "Deactivate current display manager" "Install sddm")
     else
         disman=1
-        _writeLogTerminal 0 "There is no display manager installed on your system." 
-        _writeLogMessage "You're starting Hyprland with commands on tty."
+        _writeLogTerminal 0 "There is no display manager installed on your system."
+        _writeMessage "You're starting Hyprland with commands on tty."
         echo
         dmsel=$(gum choose "Keep current setup" "Install sddm")
     fi
 
-    if [ -z "${dmsel}" ] ;then
+    if [ -z "${dmsel}" ]; then
         _writeCancel
         exit
     fi
 
-    if [ "$dmsel" == "Install sddm" ] ;then
+    if [ "$dmsel" == "Install sddm" ]; then
         _confirmCurrentDisplayManager
         _installSDDM
-    elif [ "$dmsel" == "Deactivate current display manager" ] ;then
+    elif [ "$dmsel" == "Deactivate current display manager" ]; then
         _disableDisplayManager
-    elif [ "$dmsel" == "Keep current setup" ] ;then
+    elif [ "$dmsel" == "Keep current setup" ]; then
         _writeSkipped
     else
         _writeSkipped
     fi
 else
-    if [[ "$automation_displaymanager" = true ]] ;then
+    if [[ "$automation_displaymanager" = true ]]; then
         _writeLogTerminal 0 "AUTOMATION: Keep current setup of Display Manager"
         disman=0
     fi

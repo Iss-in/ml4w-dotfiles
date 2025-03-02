@@ -1,50 +1,67 @@
 #!/bin/bash
 clear
 
+<<<<<<< HEAD
 repo="quack-o/ml4w-dotfiles"
+=======
+# -----------------------------------------------------
+# Repository
+# -----------------------------------------------------
+repo="mylinuxforwork/dotfiles"
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
+
+# -----------------------------------------------------
+# Download Folder
+# -----------------------------------------------------
+download_folder="$HOME/.ml4w"
+
+# Create download_folder if not exists
+if [ ! -d $download_folder ]; then
+    mkdir -p $download_folder
+fi
 
 # Get latest tag from GitHub
 get_latest_release() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"tag_name":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+        grep '"tag_name":' |                                             # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/'                                     # Pluck JSON value
 }
 
 # Get latest zip from GitHub
 get_latest_zip() {
-  curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
-    grep '"zipball_url":' |                                            # Get tag line
-    sed -E 's/.*"([^"]+)".*/\1/'                                    # Pluck JSON value
+    curl --silent "https://api.github.com/repos/$repo/releases/latest" | # Get latest release from GitHub api
+        grep '"zipball_url":' |                                          # Get tag line
+        sed -E 's/.*"([^"]+)".*/\1/'                                     # Pluck JSON value
 }
 
 # Check if package is installed
 _isInstalled() {
-    package="$1";
+    package="$1"
     check=$(yum list installed | grep $package)
     if [ -z "$check" ]; then
-        echo 1; #'1' means 'false' in Bash
-        return; #false
+        echo 1 #'1' means 'false' in Bash
+        return #false
     else
-        echo 0; #'0' means 'true' in Bash
-        return; #true
+        echo 0 #'0' means 'true' in Bash
+        return #true
     fi
 }
 
 # Install required packages
 _installPackages() {
-    toInstall=();
+    toInstall=()
     for pkg; do
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
-            echo "${pkg} is already installed.";
-            continue;
-        fi;
-        toInstall+=("${pkg}");
-    done;
-    if [[ "${toInstall[@]}" == "" ]] ; then
+            echo "${pkg} is already installed."
+            continue
+        fi
+        toInstall+=("${pkg}")
+    done
+    if [[ "${toInstall[@]}" == "" ]]; then
         # echo "All pacman packages are already installed.";
-        return;
-    fi;
-    printf "Package not installed:\n%s\n" "${toInstall[@]}";
+        return
+    fi
+    printf "Package not installed:\n%s\n" "${toInstall[@]}"
     sudo dnf install --assumeyes "${toInstall[@]}"
 }
 
@@ -66,63 +83,65 @@ NONE='\033[0m'
 # Header
 echo -e "${GREEN}"
 cat <<"EOF"
-   ____         __       ____       
+   ____         __       ____
   /  _/__  ___ / /____ _/ / /__ ____
  _/ // _ \(_-</ __/ _ `/ / / -_) __/
-/___/_//_/___/\__/\_,_/_/_/\__/_/   
-                                    
+/___/_//_/___/\__/\_,_/_/_/\__/_/
+
 EOF
 echo "ML4W Dotfiles for Hyprland"
 echo -e "${NONE}"
 while true; do
     read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
-        [Yy]* )
+        [Yy]*)
             echo ":: Installation started"
             echo
-        break;;
-        [Nn]* ) 
+            break
+            ;;
+        [Nn]*)
             echo ":: Installation canceled"
-            exit;
-        break;;
-        * ) 
+            exit
+            break
+            ;;
+        *)
             echo ":: Please answer yes or no."
-        ;;
+            ;;
     esac
 done
 
-# Create Downloads folder if not exists
-if [ ! -d ~/Downloads ]; then
-    mkdir ~/Downloads
-    echo ":: Downloads folder created"
-fi 
+# Create Download folder if not exists
+if [ ! -d $download_folder ]; then
+    mkdir -p $download_folder
+    echo ":: $download_folder folder created"
+fi
 
-# Remove existing download folder and zip files 
-if [ -f $HOME/Downloads/dotfiles-main.zip ]; then
-    rm $HOME/Downloads/dotfiles-main.zip
+# Remove existing download folder and zip files
+if [ -f $download_folder/dotfiles-main.zip ]; then
+    rm $download_folder/dotfiles-main.zip
 fi
-if [ -f $HOME/Downloads/dotfiles-dev.zip ]; then
-    rm $HOME/Downloads/dotfiles-dev.zip
+if [ -f $download_folder/dotfiles-dev.zip ]; then
+    rm $download_folder/dotfiles-dev.zip
 fi
-if [ -f $HOME/Downloads/dotfiles.zip ]; then
-    rm $HOME/Downloads/dotfiles.zip
+if [ -f $download_folder/dotfiles.zip ]; then
+    rm $download_folder/dotfiles.zip
 fi
-if [ -d $HOME/Downloads/dotfiles ]; then
-    rm -rf $HOME/Downloads/dotfiles
+if [ -d $download_folder/dotfiles ]; then
+    rm -rf $download_folder/dotfiles
 fi
-if [ -d $HOME/Downloads/dotfiles_temp ]; then
-    rm -rf $HOME/Downloads/dotfiles_temp
+if [ -d $download_folder/dotfiles_temp ]; then
+    rm -rf $download_folder/dotfiles_temp
 fi
-if [ -d $HOME/Downloads/dotfiles-main ]; then
-    rm -rf $HOME/Downloads/dotfiles-main
+if [ -d $download_folder/dotfiles-main ]; then
+    rm -rf $download_folder/dotfiles-main
 fi
-if [ -d $HOME/Downloads/dotfiles-dev ]; then
-    rm -rf $HOME/Downloads/dotfiles-dev
+if [ -d $download_folder/dotfiles-dev ]; then
+    rm -rf $download_folder/dotfiles-dev
 fi
 
 # Install required packages
 echo ":: Checking that required packages are installed..."
-_installPackages "${packages[@]}";
+_installPackages "${packages[@]}"
 
 bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/share/packages/fedora/special/gum.sh)
 
@@ -143,7 +162,7 @@ elif [ "$version" == "rolling-release" ]; then
     git clone --depth 1 https://github.com/quack-o/ml4w-dotfiles.git ~/Downloads/dotfiles
 elif [ "$version" == "cancel" ]; then
     echo ":: Setup canceled"
-    exit 130    
+    exit 130
 else
     echo ":: Setup canceled"
     exit 130
@@ -151,7 +170,7 @@ fi
 echo ":: Download complete."
 echo
 # Cd into dotfiles folder
-cd $HOME/Downloads/dotfiles/bin/
+cd $download_folder/dotfiles/bin/
 
 # Start Spinner
 gum spin --spinner dot --title "Starting the installation now..." -- sleep 3

@@ -28,8 +28,12 @@
     "modules-left": [
 "custom/appmenu",
         "group/links",
+<<<<<<< HEAD
 "group/settings",
 //"wlr/taskbar",
+=======
+        //"wlr/taskbar",
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
         "group/quicklinks",
 "hyprland/window",
     ],
@@ -46,11 +50,21 @@
         "pulseaudio",
 //"backlight",
         "bluetooth",
+<<<<<<< HEAD
         "battery", 
 "network",
         "group/hardware",
         "group/tools",
 "tray",
+=======
+        "network",
+        "battery", 
+        "power-profiles-daemon",
+        "group/hardware",
+        "group/tools",
+        "tray",
+        "custom/notification",
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
         "custom/exit",
         "custom/ml4w-welcome",
         "clock"

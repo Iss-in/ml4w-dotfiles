@@ -4,3 +4,4 @@ venv
 creds.json
 VSCodium
 *.ipynb
+.idea

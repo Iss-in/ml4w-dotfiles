@@ -1,44 +1,67 @@
 # ML4W Dotfiles for Hyprland
+> Developmemt Version 2.9.8.2 RC2
 
-An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and setup the required components.
+An advanced configuration of Hyprland for Arch Linux based distributions. This package includes an installation script to install and set up the required components.
 
-![image](https://github.com/user-attachments/assets/bd63665d-b32d-4632-90a4-58b46c212caf)
+![image](https://github.com/user-attachments/assets/c1af2d8a-142b-4285-9b63-92862a7868c5)
 
-YouTube Video [https://youtu.be/6B4Kf30CWLg](https://youtu.be/6B4Kf30CWLg)
+> About the screenshot: The dock can be enabled in the ML4W Sidebar or Settings app. The waybar theme is ML4W Modern White.
+
+YouTube Video https://youtu.be/sVFnd5LAYAc
 
 ## Installation
 
 The installation should work on all Arch Linux and Fedora based distributions (>2.9.7.0). [You can find more information here](https://github.com/quack-o/ml4w-dotfiles/wiki).
 
-> PLEASE NOTE: Every Linux distribution, setup and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. Installation at your own risk.
+I recommend to install a base Hyprland system before installing the ML4W Hyprland Dotfiles. Then you have a stable starting point and can test Hyprland on your system beforehand. Hyprland is complex, under ongoing development, and requires additional components.
 
-Please make sure that your system is up-to-date.
+You can find the Hyprland Installation instructions here: https://wiki.hyprland.org/Getting-Started/Installation/
+
+> IMPORTANT: Please make sure that all packages on your system are updated before running the installation script.
+
+> PLEASE NOTE: Every Linux distribution, setup, and personal configuration can be different. Therefore, I cannot guarantee that the ML4W Dotfiles will work everywhere. You install at your own risk.
 
 ### Arch Linux (based)
 ```
 bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/setup-arch.sh)
 ```
 
-You can also install the main release with your preferred AUR helper. 
+YouTube Video https://youtu.be/sVFnd5LAYAc
 
+You can also install the main release with your preferred AUR helper.
+
+```shell
 yay -S ml4w-hyprland
 ml4w-hyprland-setup
+```
 
 You can install the rolling release with
 
+```shell
 yay -S ml4w-hyprland-git
 ml4w-hyprland-setup
+```
 
-Please rebuild all packages to emsure that you get the latest commit. 
+Please rebuild all packages to ensure that you get the latest commit.
 
 ### Fedora Linux (based)
+<<<<<<< HEAD
 ```
 bash <(curl -s https://raw.githubusercontent.com/quack-o/ml4w-dotfiles/main/setup-fedora.sh)
+=======
+
+```shell
+bash <(curl -s https://raw.githubusercontent.com/mylinuxforwork/dotfiles/main/setup-fedora.sh)
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
 ```
 
 ## Troubleshooting
 
+<<<<<<< HEAD
 You can find solutiosn to common issues in the Wiki troubleshooting section: https://github.com/quack-o/ml4w-dotfiles/wiki/Troubleshooting
+=======
+You can find solutions to common issues in the Wiki troubleshooting section: https://github.com/mylinuxforwork/dotfiles/wiki/Troubleshooting
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
 
 ## Documentation (Wiki)
 
@@ -52,36 +75,17 @@ You can also visit the [ML4W Discord Server](https://discord.gg/c4fJK7Za3g) to s
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/17132db9-c6c7-454c-b56f-02fe467bc27d)
+![screenshot_06022025_165339](https://github.com/user-attachments/assets/2d281632-762f-465c-99e2-6933f1507cac)
 
 ## Wallpaper repository
 
 You can find my wallpaper collection in the repository https://github.com/mylinuxforwork/wallpaper
 
-## Special Thanks
-
-THANK YOU very much for all your support, contributions and ideas:
-
-- Filippo Aceto: https://gitlab.com/filippoaceto
-- Diana Ward: https://github.com/dianaw353
-- Don Williams: https://github.com/dwilliam62
-- Leo: https://github.com/eljejer
-- Guido De Gobbis
-- Teodor Orzechowski: https://gitlab.com/sq6gtt
-- Jamie Deppeler: https://gitlab.com/bknight2k
-- Yingjie Wang: https://gitlab.com/GaugeAndGravity
-- Daniel Gerber: https://gitlab.com/dan.john.gerber
-- Sarthak Siddhpura: https://gitlab.com/Codesmith28
-- https://gitlab.com/muee
-
-and many more...
-
-Thanks to all YouTube subscribers for all your great feedback.
-
 ## Inspirations
 
 The following projects have inspired me:
 
+- https://github.com/JaKooLit/Hyprland-Dots
 - https://github.com/prasanthrangan/hyprdots
 - https://github.com/sudo-harun/dotfiles
 - https://github.com/dianaw353/hyprland-configuration-rootfs

@@ -40,6 +40,7 @@ setopt appendhistory
 # -----------------------------------------------------
 # Starship promt
 # -----------------------------------------------------
+<<<<<<< HEAD
 # eval "$(starship init zsh)"
 
 # -----------------------------------------------------
@@ -47,6 +48,10 @@ setopt appendhistory
 # -----------------------------------------------------
 # Custom Theme
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+=======
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
+>>>>>>> 7d5a2de47aeff048cbcd0006fe599d4c8b040f37
 
 # Shipped Theme
 # eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"

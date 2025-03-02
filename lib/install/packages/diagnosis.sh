@@ -4,7 +4,6 @@
 _writeLogHeader "Diagnosis"
 
 commands=(
-    "dunst"
     "waybar"
     "hyprpaper"
     "hyprlock"
@@ -13,14 +12,13 @@ commands=(
     "wal"
     "gum"
     "wlogout"
-    "ags"
     "magick"
     "waypaper"
 )
 
 missing_commands=""
 
-_run_diagnosis(){
+_run_diagnosis() {
     for command in "${commands[@]}"; do
         if ! _checkCommandExists $command; then
             missing_commands+="$command "
@@ -40,7 +38,7 @@ if [[ ! -z $missing_commands ]]; then
     _writeMessage "You can proceed but some features of the ML4W Dotfiles will not work."
     _writeMessage "Please install the missing packages manually for your distribution."
     echo
-    if gum confirm "Do you want to proceed?" ;then
+    if gum confirm "Do you want to proceed?"; then
         echo
     elif [ $? -eq 130 ]; then
         _writeCancel
